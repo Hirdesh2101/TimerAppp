@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Yoboshu TAsk',
-      home: const MyHomePage(title: 'Mindful Meal Timer'),
+      home: MyHomePage(title: 'Mindful Meal Timer'),
     );
   }
 }
@@ -143,12 +143,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               heading[state],
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              style: const TextStyle(color: Colors.white, fontSize: 25),
             ),
             Text(
               subtext[state],
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Color.fromARGB(255, 177, 175, 175), fontSize: 18),
             ),
             Padding(
@@ -166,10 +166,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     width: MediaQuery.of(context).size.width * 0.50,
                     height: MediaQuery.of(context).size.width * 0.50,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Colors.white),
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.45,
                     height: MediaQuery.of(context).size.width * 0.45,
                     child: CircularProgressIndicator(
@@ -180,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Column(
                     children: [
                       Text(
-                        '00:${_start < 10 ? "0" + _start.toString() : _start.toString()}',
+                        '00:${_start < 10 ? "0$_start" : _start.toString()}',
                         style: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
@@ -188,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       const Text(
                         'minute\'s remaining',
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w400,
                             fontSize: 16),
